@@ -1,0 +1,168 @@
+.TH SIMPLE_SHELL 1S "11 August 2025" "VERSION" "MANUAL_NAME"
+
+.SH NAME
+shell \- brief description of what the program does
+
+.SH SYNOPSIS
+.B simple shell
+.RI [ OPTIONS ]
+.RI [ ARGUMENTS ]
+.br
+.B simple_shell
+.RB { \-h | \-\-help }
+.br
+.B simple_shell
+.RB { \-V | \-\-version }
+
+.SH DESCRIPTION
+Detailed description of what the program does, its purpose, and general behavior.
+This section should provide a comprehensive overview that helps users understand
+when and why they would use this program.
+
+You can continue with multiple paragraphs here. Each paragraph should be
+separated by a blank line in the source.
+
+.SH OPTIONS
+.TP
+.BR \-h ", " \-\-help
+Display help message and exit.
+
+.TP
+.BR \-V ", " \-\-version
+Display version information and exit.
+
+.TP
+.BR \-v ", " \-\-verbose
+Enable verbose output mode.
+
+.TP
+.BI \-f " FILE" ", \-\-file=" FILE
+Specify input file. Replace FILE with the actual file path.
+
+.TP
+.BI \-o " OUTPUT" ", \-\-output=" OUTPUT
+Specify output directory or file.
+
+.TP
+.BR \-r ", " \-\-recursive
+Process directories recursively.
+
+.TP
+.B \-\-dry\-run
+Show what would be done without actually doing it.
+
+.SH ARGUMENTS
+.TP
+.I FILE
+Input file to process. Can be specified multiple times.
+
+.TP
+.I DIRECTORY
+Target directory for operations.
+
+.SH EXIT STATUS
+The program exits with one of the following values:
+.TP
+.B 0
+Successful completion.
+
+.TP
+.B 1
+General error occurred.
+
+.TP
+.B 2
+Invalid command line arguments.
+
+.TP
+.B 126
+Command found but not executable.
+
+.TP
+.B 127
+Command not found.
+
+.SH EXAMPLES
+.TP
+Basic usage:
+.B program_name file.txt
+
+.TP
+Process multiple files with verbose output:
+.B program_name \-v file1.txt file2.txt file3.txt
+
+.TP
+Use specific output directory:
+.B program_name \-o /tmp/output input_file.txt
+
+.TP
+Recursive processing with dry-run:
+.B program_name \-r \-\-dry\-run /path/to/directory
+
+.SH FILES
+.TP
+.I ~/.config/program_name/config
+User configuration file.
+
+.TP
+.I /etc/program_name.conf
+System-wide configuration file.
+
+.TP
+.I /var/log/program_name.log
+Default log file location.
+
+.SH ENVIRONMENT
+.TP
+.B PROGRAM_NAME_CONFIG
+Override default configuration file path.
+
+.TP
+.B PROGRAM_NAME_DEBUG
+Enable debug mode when set to any non-empty value.
+
+.TP
+.B HOME
+Used to locate user configuration files.
+
+.SH DIAGNOSTICS
+Common error messages and their meanings:
+
+.TP
+.B "Permission denied"
+The program lacks necessary permissions to access a file or directory.
+
+.TP
+.B "File not found"
+Specified input file does not exist.
+
+.TP
+.B "Invalid option"
+An unrecognized command line option was provided.
+
+.SH BUGS
+Report bugs to <your-email@example.com> or file issues at
+https://github.com/ValentinDLC/holbertonschool-simple_shell/issues
+
+Known limitations:
+.IP \(bu 2
+Cannot process files larger than 2GB on 32-bit systems
+.IP \(bu 2
+Unicode support limited to UTF-8 encoding
+
+.SH NOTES
+Additional notes about the program's behavior, limitations, or special
+considerations that users should be aware of.
+
+.SH AUTHOR
+Written by Rebecca F and Valentin D
+
+.SH COPYRIGHT
+Copyright \(co 2025 Your Name.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
+.br
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+.SH HISTORY
+First appeared in version 1.0 (2025).
