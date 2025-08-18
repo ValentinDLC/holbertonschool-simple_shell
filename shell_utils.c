@@ -6,7 +6,7 @@
 void print_prompt(void)
 {
     printf("#cisfun$ ");
-    fflush(sdtout);
+    fflush(stdout);
 }
 
 /**
@@ -36,11 +36,9 @@ int is_excecutable(char *path)
 {
     struct stat st;
 
-    if (stat(path, &st) == 0)
-    {
-        if (st.st_mode & S_IXUSR)
+    if (stat(path, &st) == 0 && (st.st_mode & S_IXUSR))
         return (1);
-    }
+
     return (0);
 }
 
@@ -55,6 +53,7 @@ int exceute_command(char *command)
     pid_t pid;
     int status;
     char *args[2];
+    extern char **environ;
 
     if (!is_excecutable(command))
     {
