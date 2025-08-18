@@ -43,46 +43,32 @@ int is_excecutable(char *path)
 }
 
 /**
- * execute_command - Executes a command
- * @command: the command to execute
- *
- * Return: 0 if success, -1 if error
+ * parse_command - Parses command into arguments
+ * @command : command string to parse
+ * @args : array to store arguments
+ * 
+ * Return: number of arguments
  */
-int exceute_command(char *command)
+int parse_command(char *command, char **args)
 {
-    pid_t pid;
-    int status;
-    char *args[2];
-    extern char **environ;
+    int argc = 0;
+    char *token;
+    char *start = command;
 
-    if (!is_excecutable(command))
+    while (isspace((unsigned char)*start))
+        start++;
+
+    if(*start == '\0')
+        return (0);
+
+    token = strtok(start, " \t");
+    while (token != NULL && argc < MAX_ARGS - 1)
     {
-        printf("./shell: No such file or directory\n");
-        return (-1);
+        args[argc] = token;
+        argc++;
+        token = strtok(NULL, " \t");
     }
-
-    args[0] = command;
-    args[1] = NULL;
-
-    pid = fork();
-
-    if (pid == -1)
-    {
-        perror("fork");
-        return (-1);
-    }
-    else if (pid == 0)
-    {
-        if (execve(command, args, environ) == -1)
-        {
-            printf("./shell: No such file or directory\n");
-            exit (EXIT_FAILURE);
-        }
-    }
-    else
-    {
-        wait(&status);
-    }
-
-    return (0);
+    args[argc] = NULL;
+    
+    return (argc);
 }
