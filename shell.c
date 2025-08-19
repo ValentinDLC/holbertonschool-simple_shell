@@ -6,7 +6,7 @@
  *
  * Return: 0 if success, -1 if error
  */
-int excecute_command(char *command)
+int excecute_command(char *command, char **env)
 {
     pid_t pid;
     int status;
