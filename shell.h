@@ -8,5 +8,6 @@
 #include <sys/wait.h>
 
 void display_prompt(void);
+int read_input(void);
 
 #endif
