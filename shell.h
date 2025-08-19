@@ -31,4 +31,7 @@ int is_excecutable(char *path);
 /* Parses a command into arguments */
 int parse_command(char *command, char **args);
 
+/* Find command in PATH */
+char *find_command_in_path(char *command);
+
 #endif

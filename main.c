@@ -35,8 +35,7 @@ int main(int argc, char **argv, char **env)
 
     while (1)
     {
-            print_prompt();
-
+        print_prompt();
         cmd_len = read_command(command, sizeof(command));
 
         if (cmd_len == -1)

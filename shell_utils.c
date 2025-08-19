@@ -72,3 +72,50 @@ int parse_command(char *command, char **args)
     
     return (argc);
 }
+
+/**
+ * find_command_in_path - Find command in PATH environment variable
+ * @command: command to find
+ * 
+ * Return: full path to command if found, NULL otherwise
+ */
+char *find_command_in_path(char *command)
+{
+    char *path_env, *path_copy, *full_path, *dir;
+    size_t path_len, cmd_len;
+
+    if(strchr(command, '/') != NULL)
+    {
+        if(is_excecutable(command))
+            return(strdup(command));
+        return (NULL);
+    }
+    path_env = getenv("PATH");
+    if (path_env == NULL)
+        return (NULL);
+    path_copy = strdup(path_env);
+    if (path_copy == NULL)
+        return (NULL);
+    cmd_len = strlen(command);
+    dir = strtok(path_copy, ":");
+    while (dir != NULL)
+    {
+        path_len = strlen(dir);
+        full_path = malloc(path_len + cmd_len + 2);
+        if (full_path == NULL)
+        {
+            free(path_copy);
+            return(NULL);
+        }
+        sprintf(full_path, "%s/%s", dir, command);
+        if(is_excecutable(full_path))
+        {
+            free(path_copy);
+            return (full_path);
+        }
+        free(full_path);
+        dir = strtok(NULL, ":");
+    }
+    free(path_copy);
+    return (NULL);
+}
