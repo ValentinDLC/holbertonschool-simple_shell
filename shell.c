@@ -6,7 +6,7 @@
  *
  * Return: 0 if success, -1 if error
  */
-int excecute_command(char *command, char **env)
+int execute_command(char *command, char **env)
 {
     pid_t pid;
     int status;
@@ -35,7 +35,7 @@ int excecute_command(char *command, char **env)
     }
     else if (pid == 0)
     {
-        if (execve(args[0], args, environ) == -1)
+        if (execve(args[0], args, env) == -1)
         {
             printf("./shell: No such file or directory\n");
             exit(EXIT_FAILURE);
@@ -48,4 +48,3 @@ int excecute_command(char *command, char **env)
     free(command_copy);
     return (0);
 }
-
