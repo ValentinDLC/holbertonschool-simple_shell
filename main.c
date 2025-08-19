@@ -11,7 +11,7 @@ static int is_empty_or_spaces(char *str)
 {
 	while (*str)
 	{
-		if (!isspace((unsigned char)*str))
+		if (!is_space(*str))
 			return (0);
 		str++;
 	}
@@ -42,12 +42,13 @@ int main(int argc, char **argv, char **env)
 	while (1)
 	{
 		print_prompt();
-
-		cmd_len = read_command(command, sizeof(command));
-		if (cmd_len == -1)
+        cmd_len = read_command(command, sizeof(command));
+		
+        if (cmd_len == -1)
 		{
-			printf("\n");
-			break;
+			if (isatty(STDIN_FILENO))
+                write(STDOUT_FILENO, "\n", 1);
+            break;
 		}
 
 		if (cmd_len == 0 || is_empty_or_spaces(command))
