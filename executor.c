@@ -38,7 +38,18 @@ int execute_command(char *command, char **env)
         return (0);
     }
 
-    cmd_path = find_command(args[0]);
+    cmd_path = find_command(args[0], env);
+
+    if (cmd_path = args[0] && !strchr(args[0], '/'))
+    {
+        if (!is_excecutable(cmd_path))
+        {
+            printf("./shell: No such file or directory\n");
+            free(cmd_copy);
+            return (-1);
+        }
+    }
+    
     pid = fork();
 
     if (pid == -1)
