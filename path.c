@@ -27,6 +27,9 @@ char *search_in_dir(char *dir, char *command)
     char *full_path;
     int dir_len, cmd_len;
 
+    if(!dir || !command)
+        return (NULL);
+
     dir_len = strlen(dir);
     cmd_len = strlen(command);
     full_path = malloc(dir_len + cmd_len + 2);
@@ -57,7 +60,10 @@ char *find_command(char *command)
     if(strchr(command, '/'))
         return (command);
 
-    path_env = getenv("PATH");
+    if(!command)
+        return (NULL);
+
+    path_env = get_path_from_env(env);
     if (!path_env)
         return (command);
 
@@ -81,4 +87,29 @@ char *find_command(char *command)
 
     free(path_copy);
     return (command);
+}
+
+/**
+ * get_path_from_env - Get PATH value from environment variables
+ * @env: environment variables array
+ *
+ * Return: PATH value or NULL if not found
+ */
+char *get_path_from_env(char **env)
+{
+    int i = 0;
+    char *path_var = "PATH=";
+    int path_len = strlen(path_var);
+
+    if (!env)
+        return(NULL);
+    
+    while (env[i])
+    {
+        if (strncmp(env[i], path_var, path_len) == 0)
+            return (env[i] + path_len);
+        i++;
+    }
+
+    return (NULL);
 }
