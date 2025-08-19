@@ -28,12 +28,15 @@ void free_path_if_needed(char *cmd_path, char *original); /* Frees path if it wa
 
 /* path.c */
 int is_excecutable(char *path); /* Check if a file exists and is executable */
-char *find_command(char *command); /* Find command in PATH */
+char *find_command(char *command, char **env); /* Find command in PATH */
 char *search_in_dir(char *dir, char *command); /* Searches for a command in a directory */
-
+char *get_path_from_env(char **env);
 
 /* Parser.c */
 int parse_command(char *command, char **args); /* Parses a command into arguments */
 char *get_next_arg(char **start); /* Returns the next argument from a command string */
+
+/* utils.c */
+int is_empty_or_spaces(char *str);
 
 #endif
