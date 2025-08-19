@@ -40,7 +40,7 @@ int execute_command(char *command, char **env)
 
     cmd_path = find_command(args[0], env);
 
-    if (cmd_path = args[0] && !strchr(args[0], '/'))
+    if (cmd_path == args[0] && !strchr(args[0], '/'))
     {
         if (!is_excecutable(cmd_path))
         {
@@ -49,7 +49,7 @@ int execute_command(char *command, char **env)
             return (-1);
         }
     }
-    
+
     pid = fork();
 
     if (pid == -1)

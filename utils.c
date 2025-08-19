@@ -1,3 +1,5 @@
+#include "shell.h"
+
 /**
  * is_empty_or_spaces - Checks if a string is empty or contains only spaces.
  * @str: The string to check.
@@ -9,7 +11,7 @@ int is_empty_or_spaces(char *str)
 {
     if(!str)
         return (1);
-        
+
 	while (*str)
 	{
 		if (!is_space(*str))

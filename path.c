@@ -52,7 +52,7 @@ char *search_in_dir(char *dir, char *command)
  * @command: Command to find
  * Return: Path to executable or original command
  */
-char *find_command(char *command)
+char *find_command(char *command, char **env)
 {
     char *path_env, *path_copy, *dir;
     char *result;
