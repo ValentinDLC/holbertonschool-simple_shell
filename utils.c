@@ -9,8 +9,8 @@
  */
 int is_empty_or_spaces(char *str)
 {
-    if(!str)
-        return (1);
+	if (!str)
+		return (1);
 
 	while (*str)
 	{
