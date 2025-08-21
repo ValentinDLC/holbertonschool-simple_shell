@@ -1,7 +1,7 @@
 .TH HSH 1 "11 August 2025" "v1.0" "Simple Shell Manual"
 
 .SH NAME
-HSH \-  A minimalist UNIX command-line interpreter written in C
+hsh \-  A minimalist UNIX command-line interpreter written in C
 
 .SH SYNOPSIS
 .B hsh
@@ -23,11 +23,17 @@ It supports both interactive and non-interactive modes.
 In interactive mode:
 
 .nf
-./hsh
-($) /bin/ls
-hsh main.c shell.c
-($) exit
+#cisfun$ ls
+AUTHORS  builtin.c  executor.c  hsh  input.c  main.c  man_1_simple_shell  parser.c  path.c  prompt.c  README.md  shell.h  utils.c
 
+#cisfun$ /bin/ls
+AUTHORS  builtin.c  executor.c  hsh  input.c  main.c  man_1_simple_shell  parser.c  path.c  prompt.c  README.md  shell.h  utils.c
+
+#cisfun$ exit
+./shell: No such file or directory   # 'exit' not supported
+
+#cisfun$ [Ctrl+D]
+[Shell exits]
 .fi
 
 In non-interactive mode:
