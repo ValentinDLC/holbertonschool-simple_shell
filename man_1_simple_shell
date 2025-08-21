@@ -1,7 +1,7 @@
-.TH HSH 1S "11 August 2025" "VERSION" "MANUAL_NAME"
+.TH HSH 1 "11 August 2025" "v1.0" "Simple Shell Manual"
 
 .SH NAME
-hsh \-  A minimalist UNIX command-line interpreter written in C
+HSH \-  A minimalist UNIX command-line interpreter written in C
 
 .SH SYNOPSIS
 .B hsh
@@ -15,93 +15,40 @@ hsh \-  A minimalist UNIX command-line interpreter written in C
 .RB { \-V | \-\-version }
 
 .SH DESCRIPTION
-A minimalist UNIX command-line interpreter written in C. 
+A minimalist UNIX command-line interpreter written in C.
 It provides a basic environment to execute system commands, similar to the standard sh shell.
-
-.SH OPTIONS
-.TP
-.BR \-h ", " \-\-help
-Display help message and exit.
-
-.TP
-.BR \-V ", " \-\-version
-Display version information and exit.
-
-.TP
-.BR \-v ", " \-\-verbose
-Enable verbose output mode.
-
-.TP
-.BI \-f " FILE" ", \-\-file=" FILE
-Specify input file. Replace FILE with the actual file path.
-
-.TP
-.BI \-o " OUTPUT" ", \-\-output=" OUTPUT
-Specify output directory or file.
-
-.TP
-.BR \-r ", " \-\-recursive
-Process directories recursively.
-
-.TP
-.B \-\-dry\-run
-Show what would be done without actually doing it.
-
-.SH ARGUMENTS
-.TP
-.I FILE
-Input file to process. Can be specified multiple times.
-
-.TP
-.I DIRECTORY
-Target directory for operations.
-
-.SH EXIT STATUS
-The program exits with one of the following values:
-.TP
-.B 0
-Successful completion.
-
-.TP
-.B 1
-General error occurred.
-
-.TP
-.B 2
-Invalid command line arguments.
-
-.TP
-.B 126
-Command found but not executable.
-
-.TP
-.B 127
-Command not found.
+It supports both interactive and non-interactive modes.
 
 .SH EXAMPLES
-.TP
-Basic usage:
-.B program_name file.txt
+In interactive mode:
 
-.TP
-Process multiple files with verbose output:
-.B program_name \-v file1.txt file2.txt file3.txt
+.nf
+./hsh
+($) /bin/ls
+hsh main.c shell.c
+($) exit
 
-.TP
-Use specific output directory:
-.B program_name \-o /tmp/output input_file.txt
+.fi
 
-.TP
-Recursive processing with dry-run:
-.B program_name \-r \-\-dry\-run /path/to/directory
+In non-interactive mode:
+
+.nf
+julien@ubuntu:/# echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+
+julien@ubuntu:/# cat test_ls_2
+/bin/ls
+/bin/ls
+
+julien@ubuntu:/# cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+.fi
+
 
 .SH BUGS
 Report bugs or file issues at
 https://github.com/ValentinDLC/holbertonschool-simple_shell/issues
-
-.SH NOTES
-Additional notes about the program's behavior, limitations, or special
-considerations that users should be aware of.
 
 .SH AUTHOR
 Written by Rebecca F and Valentin D
