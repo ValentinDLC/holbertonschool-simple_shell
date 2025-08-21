@@ -8,13 +8,13 @@
  */
 int is_builtin(char *command)
 {
-    if (!command)
-        return (0);
-        
-    if (strcmp(command, "exit") == 0)
-        return (1);
-        
-    return (0);
+	if (!command)
+		return (0);
+
+	if (strcmp(command, "exit") == 0)
+		return (1);
+
+	return (0);
 }
 
 /**
@@ -26,13 +26,13 @@ int is_builtin(char *command)
  */
 int execute_builtin(char **args, int last_exit_status)
 {
-    if (!args || !args[0])
-        return (1);
-        
-    if (strcmp(args[0], "exit") == 0)
-    {
-        exit(last_exit_status);
-    }
-    
-    return (1);
+	if (!args || !args[0])
+		return (1);
+
+	if (strcmp(args[0], "exit") == 0)
+	{
+		exit(last_exit_status);
+	}
+
+	return (1);
 }
