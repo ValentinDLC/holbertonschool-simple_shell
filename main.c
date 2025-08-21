@@ -11,12 +11,13 @@
  * checks if it is valid (non-empty and not only spaces), and executes it.
  * The loop terminates when the input ends (EOF is reached).
  *
- * Return: Always 0 on success.
+ * Return: Exit status of last command executed, or 0 on success.
  */
 int main(int argc, char **argv, char **env)
 {
 	char command[MAX_CMD_LEN];
 	int cmd_len;
+	int exit_status = 0;
 
 	(void)argc;
 	(void)argv;
@@ -24,20 +25,23 @@ int main(int argc, char **argv, char **env)
 	while (1)
 	{
 		print_prompt();
-        cmd_len = read_command(command, sizeof(command));
-		
-        if (cmd_len == -1)
+		cmd_len = read_command(command, sizeof(command));
+		if (cmd_len == -1)
 		{
 			if (isatty(STDIN_FILENO))
-                write(STDOUT_FILENO, "\n", 1);
-            break;
+				write(STDOUT_FILENO, "\n", 1);
+			break;
 		}
-
 		if (cmd_len == 0 || is_empty_or_spaces(command))
 			continue;
-
-		execute_command(command, env);
+		exit_status = execute_command(command, env, &exit_status);
+		if (exit_status == -2)
+		{
+			exit_status = 0;
+			break;
+		}
+		if (exit_status == -1)
+			exit_status = 1;
 	}
-
-	return (0);
+	return (exit_status);
 }
