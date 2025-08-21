@@ -1,4 +1,5 @@
 # This is the list of Simple shell's contributors.
+# Generated using: git log --format='%aN <%aE>' | sort -uf > AUTHORS
 
 Rebecca F <rebecca.fsq011@protonmail.com>
 ValentinDLC <valentin.dardenne9@gmail.com>
