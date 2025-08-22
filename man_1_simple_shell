@@ -1,8 +1,8 @@
 .TH HSH 1 "11 August 2025" "v1.0" "Simple Shell Manual"
-
+.PP
 .SH NAME
 hsh \-  A minimalist UNIX command-line interpreter written in C
-
+.PP
 .SH SYNOPSIS
 In interactive mode:
 .br
@@ -14,58 +14,69 @@ In non-interactive mode:
 .B echo
 .RI [ arguments ]
 .B | ./hsh
-
+.PP
 .SH DESCRIPTION
 A minimalist UNIX command-line interpreter written in C.
 It provides a basic environment to execute system commands, similar to the standard sh shell.
 It supports both interactive and non-interactive modes.
-
+.PP
+.SH BUILTINS
+The following built-in commands are supported:
+.TP
+.B exit
+Exit the shell.
+.TP
+.B [Ctrl+D]
+End-of-file signal to exit the shell.
+.TP
+.B env
+Print the current environment variables.
+.PP
 .SH EXAMPLES
 In interactive mode:
-
+.br
 .nf
 #cisfun$ ls
 AUTHORS  builtin.c  executor.c  hsh  input.c  main.c  man_1_simple_shell  parser.c  path.c  prompt.c  README.md  shell.h  utils.c
-
+.br
 #cisfun$ /bin/ls
 AUTHORS  builtin.c  executor.c  hsh  input.c  main.c  man_1_simple_shell  parser.c  path.c  prompt.c  README.md  shell.h  utils.c
-
+.br
 #cisfun$ exit
 ./shell: No such file or directory   # 'exit' not supported
-
+.br
 #cisfun$ [Ctrl+D]
 [Shell exits]
 .fi
-
+.PP
 In non-interactive mode:
-
+.br
 .nf
 $ echo "/bin/ls" | ./hsh
 AUTHORS  builtin.c  executor.c  hsh  input.c  main.c  man_1_simple_shell  parser.c  path.c  prompt.c  README.md  shell.h  utils.c
-
+.br
 $ cat test_ls_2
 /bin/ls
 /bin/ls
-
+.br
 $ cat test_ls_2 | ./hsh
 hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 .fi
-
-
+.PP
 .SH BUGS
 Report bugs or file issues at
 https://github.com/ValentinDLC/holbertonschool-simple_shell/issues
-
+.PP
 .SH AUTHOR
 Written by Rebecca F and Valentin D
-
+.PP
 .SH COPYRIGHT
 Copyright \(co 2025 Rebecca F & Valentin D.
 License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
 .br
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
-
+.PP
 .SH HISTORY
 First appeared in version 1.0 (2025).
