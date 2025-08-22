@@ -25,9 +25,7 @@ The following built-in commands are supported:
 .TP
 .B exit
 Exit the shell.
-.TP
-.B [Ctrl+D]
-End-of-file signal to exit the shell.
+.br
 .TP
 .B env
 Print the current environment variables.
@@ -36,9 +34,6 @@ Print the current environment variables.
 In interactive mode:
 .br
 .nf
-#cisfun$ ls
-AUTHORS  builtin.c  executor.c  hsh  input.c  main.c  man_1_simple_shell  parser.c  path.c  prompt.c  README.md  shell.h  utils.c
-.br
 #cisfun$ /bin/ls
 AUTHORS  builtin.c  executor.c  hsh  input.c  main.c  man_1_simple_shell  parser.c  path.c  prompt.c  README.md  shell.h  utils.c
 .br
