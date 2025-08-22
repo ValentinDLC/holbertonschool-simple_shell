@@ -44,3 +44,35 @@ hsh.1
 
 ```bash
 man ./hsh.1
+```
+
+## 3. Requirements
+
+- **Ubuntu 20.x** (development and testing environment)  
+- **GCC** (GNU Compiler Collection) for compiling C code  
+- **Git** for version control  
+- **Standard C library functions**
+
+## 4. Usage Examples
+
+### Shell Execution
+![Shell Execution Example](assets/shell_execution.png)
+
+### Supported Commands
+
+#### Basic commands
+![Basic Commands Example](assets/basic_commands.png)
+
+#### Absolute paths
+![Absolute Path Example](assets/absolute_path.png)
+
+#### Commands with arguments
+![Arguments Example](assets/arguments.png)
+
+#### Built-in commands
+![Exit Example](assets/exit_command.png)
+
+---
+
+### To quit
+Use **Ctrl+D** (EOF) or the **exit** command.
