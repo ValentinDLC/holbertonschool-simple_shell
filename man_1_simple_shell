@@ -38,10 +38,12 @@ In interactive mode:
 AUTHORS  builtin.c  executor.c  hsh  input.c  main.c  man_1_simple_shell  parser.c  path.c  prompt.c  README.md  shell.h  utils.c
 .br
 #cisfun$ exit
-./shell: No such file or directory
+[exit shell]
+$
 .br
 #cisfun$ [Ctrl+D]
-[Shell exits]
+[EOF signal: shell exits]
+$
 .fi
 .PP
 In non-interactive mode:
